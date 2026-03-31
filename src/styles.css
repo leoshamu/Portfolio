@@ -474,6 +474,22 @@ ul {
   font-size: 0.95rem;
 }
 
+.projects-intro-quote {
+  width: min(720px, 100%);
+  margin-bottom: 1.4rem;
+  padding: 1.4rem 1.5rem;
+  border-radius: 28px;
+  background: linear-gradient(135deg, var(--surface-strong), #102927);
+  box-shadow: var(--shadow-strong);
+}
+
+.projects-intro-quote .quote-text {
+  color: var(--cream);
+  font-size: clamp(1.55rem, 2.7vw, 2.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+
 .skill-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -680,6 +696,17 @@ ul {
 .contact-copy p {
   max-width: 34rem;
   color: rgba(247, 243, 234, 0.8);
+}
+
+.contact-about-title {
+  color: var(--cream);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+
+.contact-about-text {
+  margin-top: -0.25rem;
 }
 
 .contact-panel {
@@ -917,6 +944,12 @@ ul {
     margin-bottom: 1.5rem;
   }
 
+  .projects-intro-quote {
+    margin-bottom: 1rem;
+    padding: 1.1rem 1.2rem;
+    border-radius: 22px;
+  }
+
   .section-heading h2 {
     font-size: clamp(2.05rem, 11vw, 3rem);
     line-height: 1;
@@ -970,6 +1003,10 @@ ul {
 
   .contact-copy h2 {
     font-size: clamp(2.1rem, 11vw, 3rem);
+  }
+
+  .contact-about-title {
+    font-size: 1.35rem;
   }
 
   .about-profile-image {

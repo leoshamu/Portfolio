@@ -129,11 +129,6 @@ function App() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-
-            <aside className="story-quote">
-              <p className="quote-text">"I want my work to speak for itself."</p>
-              {profile.note ? <p className="quote-meta">{profile.note}</p> : null}
-            </aside>
           </div>
         </section>
 
@@ -162,6 +157,9 @@ function App() {
         </section>
 
         <section className="section work" id="work">
+          <div className="projects-intro-quote">
+            <p className="quote-text">"I want my work to speak for itself."</p>
+          </div>
           <SectionHeading
             eyebrow="Projects"
             title="Some of the projects I have worked on."
@@ -252,6 +250,13 @@ function App() {
         <section className="section contact" id="contact">
           <div className="contact-card">
             <div className="contact-copy">
+              <p className="eyebrow">About me</p>
+              <h3 className="contact-about-title">Full Stack Software Engineer</h3>
+              <p className="contact-about-text">
+                I build full-stack web applications with a focus on clean
+                interfaces, useful features, and solid backend logic.
+              </p>
+
               <p className="eyebrow">Contact</p>
               <h2>I am open to opportunities and connections.</h2>
               <p>
@@ -290,12 +295,6 @@ function App() {
                   <img src={profile.image} alt="Leo Shamu portrait" />
                 </div>
               ) : null}
-              <p className="card-label">About me</p>
-              <h3>Full Stack Software Engineer</h3>
-              <p>
-                I build full-stack web applications with a focus on clean
-                interfaces, useful features, and solid backend logic.
-              </p>
               {profile.github ? (
                 <a
                   className="contact-link about-github-link"
