@@ -79,7 +79,7 @@ ul {
   position: relative;
   width: 100%;
   max-width: 100%;
-  padding: 1.2rem clamp(1rem, 2vw, 2rem) 2.5rem;
+  padding: 6.6rem clamp(1rem, 2vw, 2rem) 2.5rem;
 }
 
 .ambient {
@@ -116,16 +116,16 @@ ul {
 }
 
 .site-header {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 1rem;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  width: min(1200px, calc(100% - 2rem));
   padding: 0.9rem 1.1rem;
   background: rgba(244, 239, 231, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.45);
@@ -849,11 +849,12 @@ ul {
   }
 
   .page-shell {
-    padding: 0.85rem 0.8rem 2rem;
+    padding: 5.65rem 0.8rem 2rem;
   }
 
   .site-header {
     top: 0.75rem;
+    width: calc(100% - 1.6rem);
     padding: 0.75rem 0.9rem;
     border-radius: 22px;
   }
@@ -1042,10 +1043,11 @@ ul {
 
 @media (max-width: 480px) {
   .page-shell {
-    padding-inline: 0.7rem;
+    padding: 5.35rem 0.7rem 2rem;
   }
 
   .site-header {
+    width: calc(100% - 1.4rem);
     padding: 0.7rem 0.85rem;
   }
 
