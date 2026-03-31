@@ -285,12 +285,27 @@ function App() {
             </div>
 
             <div className="contact-panel">
+              {profile.image ? (
+                <div className="about-profile-image">
+                  <img src={profile.image} alt="Leo Shamu portrait" />
+                </div>
+              ) : null}
               <p className="card-label">About me</p>
               <h3>Full Stack Software Engineer</h3>
               <p>
                 I build full-stack web applications with a focus on clean
                 interfaces, useful features, and solid backend logic.
               </p>
+              {profile.github ? (
+                <a
+                  className="contact-link about-github-link"
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub Profile
+                </a>
+              ) : null}
             </div>
           </div>
         </section>

@@ -18,7 +18,8 @@ export const profile = {
   ],
   note: 'I can add real project screenshots here next.',
   email: 'leoshamu12@gmail.com',
-  github: '',
+  github: 'https://github.com/leoshamu',
+  image: withBase('images/leo-profile.jpeg'),
   linkedin: 'https://zw.linkedin.com/in/leo-shamu-6957182a6',
 }
 
