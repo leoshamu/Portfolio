@@ -25,12 +25,16 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   background:
     radial-gradient(circle at top right, rgba(23, 75, 70, 0.08), transparent 28rem),
     radial-gradient(circle at bottom left, rgba(204, 107, 60, 0.12), transparent 30rem),
@@ -73,6 +77,9 @@ ul {
 
 .page-shell {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   padding: 1.2rem clamp(1rem, 2vw, 2rem) 2.5rem;
 }
 
@@ -798,6 +805,15 @@ ul {
 }
 
 @media (max-width: 760px) {
+  html,
+  body {
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    touch-action: pan-y pinch-zoom;
+  }
+
   .page-shell {
     padding: 0.85rem 0.8rem 2rem;
   }
