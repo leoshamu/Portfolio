@@ -1,3 +1,5 @@
+const withBase = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export const profile = {
   name: 'Leo Shamu',
   role: 'Software Engineer',
@@ -102,19 +104,19 @@ export const featuredProjects = [
     github: 'https://github.com/leoshamu/Telecom-Support-Ticket-Dashboard-Project',
     images: [
       {
-        src: '/images/telecom-1.png',
+        src: withBase('images/telecom-1.png'),
         alt: 'Telecom dashboard client portal showing welcome section and ticket stats',
       },
       {
-        src: '/images/telecom-2.png',
+        src: withBase('images/telecom-2.png'),
         alt: 'Telecom dashboard landing page with project overview',
       },
       {
-        src: '/images/telecom-3.png',
+        src: withBase('images/telecom-3.png'),
         alt: 'Telecom dashboard about section and developer credits',
       },
       {
-        src: '/images/telecom-4.png',
+        src: withBase('images/telecom-4.png'),
         alt: 'Telecom dashboard sign in page for client access',
       },
     ],
@@ -131,15 +133,15 @@ export const featuredProjects = [
     github: '',
     images: [
       {
-        src: '/images/uz-1.jpeg',
+        src: withBase('images/uz-1.jpeg'),
         alt: 'UZ landlord portal login page',
       },
       {
-        src: '/images/uz-2.jpeg',
+        src: withBase('images/uz-2.jpeg'),
         alt: 'UZ off-campus accommodation landing page',
       },
       {
-        src: '/images/uz-3.jpeg',
+        src: withBase('images/uz-3.jpeg'),
         alt: 'UZ off-campus accommodation about section and developer cards',
       },
     ],
