@@ -16,7 +16,7 @@ export const profile = {
     'Most of my work is around React, JavaScript, HTML, and CSS on the frontend, and Node.js, MongoDB, and Java when backend work is needed.',
     'I like writing clean code, building useful features, and making sure the final result feels clear and easy to use.',
   ],
-  note: 'I can add real project screenshots here next.',
+  note: '',
   email: 'leoshamu12@gmail.com',
   github: 'https://github.com/leoshamu',
   image: withBase('images/leo-profile.jpeg'),

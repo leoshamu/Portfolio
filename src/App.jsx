@@ -132,7 +132,7 @@ function App() {
 
             <aside className="story-quote">
               <p className="quote-text">"I want my work to speak for itself."</p>
-              <p className="quote-meta">{profile.note}</p>
+              {profile.note ? <p className="quote-meta">{profile.note}</p> : null}
             </aside>
           </div>
         </section>

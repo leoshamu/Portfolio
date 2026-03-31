@@ -79,7 +79,6 @@ ul {
   position: relative;
   width: 100%;
   max-width: 100%;
-  overflow-x: clip;
   padding: 1.2rem clamp(1rem, 2vw, 2rem) 2.5rem;
 }
 
@@ -119,6 +118,8 @@ ul {
 .site-header {
   position: sticky;
   top: 1rem;
+  left: 0;
+  right: 0;
   z-index: 20;
   display: flex;
   align-items: center;
