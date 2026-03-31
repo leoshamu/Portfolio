@@ -5,7 +5,7 @@ export const profile = {
   role: 'Software Engineer',
   headline: 'I build clean and modern web experiences.',
   intro:
-    'I am a software engineering student who enjoys building web applications that look good, work well, and solve real problems.',
+    'I am a software engineering student who enjoys building web and mobile applications that look good, work well, and solve real problems.',
   availability:
     'Open to internships, junior software engineering roles, and freelance opportunities.',
   currentFocus: 'Frontend work, backend logic, and full-stack projects.',
