@@ -116,11 +116,12 @@ ul {
 }
 
 .site-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 1rem;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -734,6 +735,11 @@ ul {
   display: block;
 }
 
+.contact-profile-image {
+  width: 132px;
+  margin: 0.4rem 0 0.2rem;
+}
+
 .contact-panel h3 {
   margin-top: 0.45rem;
   color: var(--cream);
@@ -746,7 +752,7 @@ ul {
 
 .about-github-link {
   width: fit-content;
-  margin-top: 1rem;
+  margin-top: 0;
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.14);
   color: var(--cream);
@@ -1012,6 +1018,11 @@ ul {
   .about-profile-image {
     width: 120px;
     margin: 0 auto 1rem;
+  }
+
+  .contact-profile-image {
+    width: 116px;
+    margin: 0.2rem auto 0.35rem;
   }
 
   .contact-panel {

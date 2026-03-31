@@ -264,6 +264,12 @@ function App() {
                 or project, feel free to contact me.
               </p>
 
+              {profile.image ? (
+                <div className="about-profile-image contact-profile-image">
+                  <img src={profile.image} alt="Leo Shamu portrait" />
+                </div>
+              ) : null}
+
               <div className="contact-actions">
                 <a className="contact-link contact-link-primary" href={`mailto:${profile.email}`}>
                   Email me
@@ -276,25 +282,10 @@ function App() {
                 >
                   LinkedIn
                 </a>
-                {profile.github ? (
-                  <a
-                    className="contact-link"
-                    href={profile.github}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub
-                  </a>
-                ) : null}
               </div>
             </div>
 
             <div className="contact-panel">
-              {profile.image ? (
-                <div className="about-profile-image">
-                  <img src={profile.image} alt="Leo Shamu portrait" />
-                </div>
-              ) : null}
               {profile.github ? (
                 <a
                   className="contact-link about-github-link"
@@ -311,7 +302,7 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <p>{profile.name}</p>
+        <p>&copy; 2026 {profile.name}</p>
         <p>{profile.role}</p>
       </footer>
     </div>
