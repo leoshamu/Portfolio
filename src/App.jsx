@@ -282,21 +282,20 @@ function App() {
                 >
                   LinkedIn
                 </a>
+                {profile.github ? (
+                  <a
+                    className="contact-link"
+                    href={profile.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub Profile
+                  </a>
+                ) : null}
               </div>
             </div>
 
-            <div className="contact-panel">
-              {profile.github ? (
-                <a
-                  className="contact-link about-github-link"
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub Profile
-                </a>
-              ) : null}
-            </div>
+            <div className="contact-panel" />
           </div>
         </section>
       </main>

@@ -750,14 +750,6 @@ ul {
   color: rgba(247, 243, 234, 0.72);
 }
 
-.about-github-link {
-  width: fit-content;
-  margin-top: 0;
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.14);
-  color: var(--cream);
-}
-
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -1028,10 +1020,6 @@ ul {
 
   .contact-panel {
     text-align: center;
-  }
-
-  .about-github-link {
-    width: 100%;
   }
 
   .site-footer {
