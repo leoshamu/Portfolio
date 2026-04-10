@@ -85,14 +85,14 @@ function DeferredHeroBeams() {
     () =>
       isCompact || isLiteDevice
         ? {
-            beamWidth: 2.8,
-            beamHeight: 24,
-            beamNumber: 8,
+            beamWidth: 3.3,
+            beamHeight: 27,
+            beamNumber: 11,
             lightColor: '#ffffff',
-            speed: 1.3,
-            noiseIntensity: 0.95,
-            scale: 0.16,
-            rotation: 22,
+            speed: 1.55,
+            noiseIntensity: 1.2,
+            scale: 0.19,
+            rotation: 28,
           }
         : {
             beamWidth: 4.1,
