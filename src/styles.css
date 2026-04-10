@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700;800&display=swap');
-
 :root {
   --bg: #f4efe7;
   --surface: rgba(255, 252, 247, 0.72);
@@ -185,6 +183,11 @@ ul {
   scroll-margin-top: 7rem;
 }
 
+.section:not(.hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
 .section-tight {
   padding-top: 1rem;
 }
@@ -295,6 +298,47 @@ ul {
 .hero-panel {
   border-radius: 34px;
   padding: 1.6rem;
+  background: #060606;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-panel-beams {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-panel-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 24%, rgba(243, 186, 135, 0.22), transparent 26%),
+    radial-gradient(circle at 78% 72%, rgba(255, 255, 255, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.92), rgba(6, 6, 6, 0.98));
+}
+
+.hero-panel .eyebrow,
+.hero-panel .card-label,
+.hero-panel .metric-value,
+.hero-panel .panel-top h2,
+.hero-panel .status-item p:first-of-type {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-panel .eyebrow {
+  color: rgba(243, 186, 135, 0.92);
+}
+
+.hero-panel .panel-top h2,
+.hero-panel .metric-value,
+.hero-panel .status-item p,
+.hero-panel .card-label {
+  color: var(--cream);
+}
+
+.hero-panel .panel-copy,
+.hero-panel .status-item p:last-child {
+  color: rgba(247, 243, 234, 0.78);
 }
 
 .hero-panel::after {
@@ -345,6 +389,13 @@ ul {
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.52);
   border: 1px solid rgba(23, 20, 18, 0.08);
+}
+
+.hero-panel .metric-card,
+.hero-panel .status-item {
+  background: rgba(16, 16, 16, 0.48);
+  border-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .metric-value {

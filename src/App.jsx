@@ -1,3 +1,12 @@
+import {
+  Suspense,
+  lazy,
+  startTransition,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
+
 import './styles.css'
 import {
   featuredProjects,
@@ -16,6 +25,8 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ]
 
+const LazyBeams = lazy(() => import('./Beams'))
+
 function SectionHeading({ eyebrow, title, description }) {
   return (
     <div className="section-heading">
@@ -26,6 +37,81 @@ function SectionHeading({ eyebrow, title, description }) {
       <p className="section-description">{description}</p>
     </div>
   )
+}
+
+function DeferredHeroBeams() {
+  const [shouldLoad, setShouldLoad] = useState(false)
+  const [isCompact, setIsCompact] = useState(false)
+  const [isLiteDevice, setIsLiteDevice] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 760px)')
+    const updateCompact = () => setIsCompact(mediaQuery.matches)
+    updateCompact()
+
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+    const saveData = Boolean(connection?.saveData)
+    const lowMemory = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4
+    const lowBandwidth = typeof connection?.downlink === 'number' && connection.downlink < 2
+    setIsLiteDevice(saveData || lowMemory || lowBandwidth)
+
+    const activate = () => {
+      startTransition(() => {
+        setShouldLoad(true)
+      })
+    }
+
+    let timeoutId
+    let idleId
+
+    if ('requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(activate, { timeout: 1200 })
+    } else {
+      timeoutId = window.setTimeout(activate, 350)
+    }
+
+    mediaQuery.addEventListener('change', updateCompact)
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateCompact)
+      if (timeoutId) window.clearTimeout(timeoutId)
+      if (idleId && 'cancelIdleCallback' in window) {
+        window.cancelIdleCallback(idleId)
+      }
+    }
+  }, [])
+
+  const beamProps = useMemo(
+    () =>
+      isCompact || isLiteDevice
+        ? {
+            beamWidth: 2.8,
+            beamHeight: 24,
+            beamNumber: 8,
+            lightColor: '#ffffff',
+            speed: 1.3,
+            noiseIntensity: 0.95,
+            scale: 0.16,
+            rotation: 22,
+          }
+        : {
+            beamWidth: 4.1,
+            beamHeight: 30,
+            beamNumber: 20,
+            lightColor: '#ffffff',
+            speed: 2,
+            noiseIntensity: 1.75,
+            scale: 0.2,
+            rotation: 30,
+          },
+    [isCompact, isLiteDevice],
+  )
+
+  return shouldLoad ? (
+    <Suspense fallback={null}>
+      <LazyBeams {...beamProps} />
+    </Suspense>
+  ) : null
 }
 
 function App() {
@@ -76,6 +162,10 @@ function App() {
           </div>
 
           <aside className="hero-panel reveal">
+            <div className="hero-panel-beams" aria-hidden="true">
+              <div className="hero-panel-fallback" />
+              <DeferredHeroBeams />
+            </div>
             <div className="panel-top">
               <p className="eyebrow">Current focus</p>
               <h2>{profile.currentFocus}</h2>
@@ -180,7 +270,13 @@ function App() {
                         rel="noreferrer"
                         aria-label={`Open ${project.title} main screenshot`}
                       >
-                        <img src={project.images[0].src} alt={project.images[0].alt} />
+                        <img
+                          src={project.images[0].src}
+                          alt={project.images[0].alt}
+                          loading="lazy"
+                          decoding="async"
+                          fetchPriority="low"
+                        />
                       </a>
                     </div>
                     <div className="project-gallery-strip">
@@ -192,7 +288,13 @@ function App() {
                             rel="noreferrer"
                             aria-label={`Open screenshot for ${project.title}`}
                           >
-                            <img src={image.src} alt={image.alt} />
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              loading="lazy"
+                              decoding="async"
+                              fetchPriority="low"
+                            />
                           </a>
                         </div>
                       ))}
@@ -266,7 +368,13 @@ function App() {
 
               {profile.image ? (
                 <div className="about-profile-image contact-profile-image">
-                  <img src={profile.image} alt="Leo Shamu portrait" />
+                  <img
+                    src={profile.image}
+                    alt="Leo Shamu portrait"
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                  />
                 </div>
               ) : null}
 
