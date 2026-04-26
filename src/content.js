@@ -12,7 +12,7 @@ export const profile = {
   panelIntro:
     'I like building projects that are simple to use, easy to understand, and useful to real people.',
   story: [
-    'I use software engineer as my main title because that is the path I am working toward, even though I am still studying.',
+    'I use software engineer as my main title because that is the path I am working towards, even though I am still studying.',
     'Most of my work is around React, JavaScript, HTML, and CSS on the frontend, and Node.js, MongoDB, and Java when backend work is needed.',
     'I like writing clean code, building useful features, and making sure the final result feels clear and easy to use.',
   ],
@@ -101,7 +101,7 @@ export const featuredProjects = [
     title: 'Smart Campus Service System',
     summary:
       'A full-stack campus support platform for reporting, tracking, and resolving facility issues.',
-    stack: ['React', 'Node.js', 'MongoDB'],
+    stack: ['React', 'JavaScript','Node.js', 'MongoDB'],
     github: 'https://github.com/leoshamu/Smart-Campus-Service-System/tree/master',
     images: [
       {
@@ -126,7 +126,7 @@ export const featuredProjects = [
     outcome: '',
   },
   {
-    badge: 'Featured project',
+    badge: 'Completed project',
     title: 'Telecom Support Ticket Dashboard',
     summary:
       'A dashboard for managing telecom support tickets in a more organized and simple way.',
