@@ -97,6 +97,35 @@ export const skillGroups = [
 
 export const featuredProjects = [
   {
+    badge: 'Completed project',
+    title: 'Smart Campus Service System',
+    summary:
+      'A full-stack campus support platform for reporting, tracking, and resolving facility issues.',
+    stack: ['React', 'Node.js', 'MongoDB'],
+    github: 'https://github.com/leoshamu/Smart-Campus-Service-System/tree/master',
+    images: [
+      {
+        src: withBase('images/smart-campus-1.png'),
+        alt: 'Smart Campus Service System login page with student and admin access',
+      },
+      {
+        src: withBase('images/smart-campus-2.png'),
+        alt: 'Smart Campus student portal dashboard for reporting service problems',
+      },
+      {
+        src: withBase('images/smart-campus-3.png'),
+        alt: 'Smart Campus student complaint form and recent activity section',
+      },
+      {
+        src: withBase('images/smart-campus-4.png'),
+        alt: 'Smart Campus admin portal for monitoring and managing reported issues',
+      },
+    ],
+    detail:
+      'Students can verify accounts with email OTPs, submit facility reports, track their progress, and review resolved reports while administrators prioritize and resolve issues.',
+    outcome: '',
+  },
+  {
     badge: 'Featured project',
     title: 'Telecom Support Ticket Dashboard',
     summary:
