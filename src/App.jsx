@@ -166,9 +166,6 @@ function App() {
               <a className="button button-primary" href="#work">
                 View projects
               </a>
-              <a className="button button-secondary" href={cvPath} download>
-                Download CV
-              </a>
               <a className="button button-secondary" href="#skills">
                 View skills
               </a>
