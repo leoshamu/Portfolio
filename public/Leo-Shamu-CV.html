@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leo Shamu CV</title>
+    <style>
+      :root {
+        --ink: #0b1f38;
+        --muted: #526174;
+        --line: #d7dee8;
+        --soft: #f5f8fb;
+        --accent: #0f766e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #e7edf4;
+        color: var(--ink);
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 11.3px;
+        line-height: 1.38;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 15mm 17mm;
+        background: #ffffff;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 30px;
+        line-height: 1;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .role {
+        margin-top: 5px;
+        color: var(--accent);
+        font-size: 13.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .contact {
+        display: grid;
+        gap: 4px;
+        color: var(--muted);
+        font-size: 10.2px;
+        text-align: right;
+      }
+
+      .contact a,
+      .project-link {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      section {
+        padding: 9px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      section:last-child {
+        border-bottom: 0;
+      }
+
+      .section-title {
+        margin-bottom: 6px;
+        color: var(--accent);
+        font-size: 10.6px;
+        font-weight: 800;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+      }
+
+      .profile {
+        color: var(--muted);
+        font-size: 11.4px;
+      }
+
+      .education-grid {
+        display: grid;
+        gap: 6px;
+      }
+
+      .education-item,
+      .project {
+        display: grid;
+        gap: 3px;
+      }
+
+      .item-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      h3 {
+        font-size: 12.5px;
+        line-height: 1.2;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 10px;
+        white-space: nowrap;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px 16px;
+      }
+
+      .skill-line {
+        color: var(--muted);
+      }
+
+      .skill-line strong {
+        color: var(--ink);
+      }
+
+      .projects {
+        display: grid;
+        gap: 8px;
+      }
+
+      .project p {
+        color: var(--muted);
+      }
+
+      .tech {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .update {
+        padding: 5px 8px;
+        border-left: 3px solid var(--accent);
+        background: var(--soft);
+      }
+
+      .career {
+        color: var(--muted);
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      @media print {
+        body {
+          background: #ffffff;
+        }
+
+        .page {
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div>
+          <h1>Leo Shamu</h1>
+          <p class="role">Software Engineer</p>
+        </div>
+        <div class="contact" aria-label="Contact details">
+          <span>Harare, Zimbabwe</span>
+          <span>+263 789 159 113</span>
+          <a href="mailto:leoshamu12@gmail.com">leoshamu12@gmail.com</a>
+          <a href="https://github.com/leoshamu">github.com/leoshamu</a>
+          <a href="https://zw.linkedin.com/in/leo-shamu-6957182a6">linkedin.com/in/leo-shamu-6957182a6</a>
+        </div>
+      </header>
+
+      <section>
+        <h2 class="section-title">Profile</h2>
+        <p class="profile">
+          Software engineering student at the University of Zimbabwe with experience building clean,
+          responsive full-stack web applications. Skilled in React, JavaScript, Node.js, MongoDB,
+          and Java, with growing experience in AI integrations, authentication flows, REST APIs,
+          and practical backend problem solving.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+          <article class="education-item">
+            <div class="item-top">
+              <h3>University of Zimbabwe</h3>
+              <span class="meta">Current</span>
+            </div>
+            <p class="skill-line">Bachelor of Science Honours in Software Engineering</p>
+          </article>
+          <article class="education-item">
+            <div class="item-top">
+              <h3>Mandedza High School</h3>
+              <span class="meta">2022 - 2023</span>
+            </div>
+            <p class="skill-line">Advanced Level</p>
+          </article>
+          <article class="education-item">
+            <div class="item-top">
+              <h3>Mandedza High School</h3>
+              <span class="meta">2018 - 2021</span>
+            </div>
+            <p class="skill-line">Ordinary Level</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <p class="skill-line"><strong>Frontend:</strong> React, JavaScript, HTML5, CSS3, Responsive Design</p>
+          <p class="skill-line"><strong>Backend:</strong> Node.js, REST APIs, Authentication, Java</p>
+          <p class="skill-line"><strong>Database:</strong> MongoDB, CRUD Operations, Data Modeling</p>
+          <p class="skill-line"><strong>AI:</strong> Hugging Face, Semantic Matching, AI-assisted Classification</p>
+          <p class="skill-line"><strong>Tools:</strong> Git, GitHub, Debugging, UI Planning, Code Readability</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects">
+          <article class="project">
+            <div class="item-top">
+              <h3>Smart Campus Service System</h3>
+              <a class="meta project-link" href="https://github.com/leoshamu/Smart-Campus-Service-System">GitHub</a>
+            </div>
+            <p>
+              Full-stack campus support platform where students report facility issues, verify
+              accounts with email OTPs, track reports, and review resolved complaints.
+              Administrators manage, prioritize, and resolve reported problems.
+            </p>
+            <p class="tech">React, JavaScript, Node.js, MongoDB, Hugging Face</p>
+            <p class="update">
+              Latest update: added semantic duplicate detection using sentence embeddings to
+              group similar complaints even when students use different wording.
+            </p>
+          </article>
+
+          <article class="project">
+            <div class="item-top">
+              <h3>Telecom Support Ticket Dashboard</h3>
+              <a class="meta project-link" href="https://github.com/leoshamu/Telecom-Support-Ticket-Dashboard-Project">GitHub</a>
+            </div>
+            <p>
+              Dashboard for managing telecom support tickets in a simple and organized way,
+              helping users submit, manage, and follow support issues more clearly.
+            </p>
+            <p class="tech">React, JavaScript, Node.js, MongoDB</p>
+          </article>
+
+          <article class="project">
+            <div class="item-top">
+              <h3>UZ Off Campus Accommodation</h3>
+            </div>
+            <p>
+              Platform designed to help students search for off-campus accommodation more easily,
+              built around a real student problem with a focus on simple navigation and clear UX.
+            </p>
+            <p class="tech">React, JavaScript, Node.js, MongoDB</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Career Interests</h2>
+        <p class="career">
+          Internships, junior software engineering roles, freelance web development projects,
+          and opportunities to contribute to real-world full-stack applications.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

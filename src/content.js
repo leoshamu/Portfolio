@@ -30,7 +30,7 @@ export const heroStats = [
   },
   {
     label: 'Backend',
-    value: 'Node.js, Java, MongoDB',
+    value: 'Node.js, Java, MongoDB, AI integrations',
   },
   {
     label: 'Focus',
@@ -79,13 +79,13 @@ export const skillGroups = [
     title: 'Backend and APIs',
     description:
       'I use backend tools to handle data, app logic, and server-side features.',
-    skills: ['Node.js', 'REST APIs', 'Authentication flow', 'Java', 'Object-oriented design', 'Debugging'],
+    skills: ['Node.js', 'REST APIs', 'Authentication flow', 'AI integrations', 'Java', 'Object-oriented design', 'Debugging'],
   },
   {
     title: 'Data and Persistence',
     description:
       'I use databases to store, manage, and organize application data.',
-    skills: ['MongoDB', 'CRUD operations', 'Schema thinking', 'Data modeling', 'Query planning'],
+    skills: ['MongoDB', 'CRUD operations', 'Schema thinking', 'Data modeling', 'Semantic matching', 'Query planning'],
   },
   {
     title: 'Workflow and Mindset',
@@ -101,7 +101,7 @@ export const featuredProjects = [
     title: 'Smart Campus Service System',
     summary:
       'A full-stack campus support platform for reporting, tracking, and resolving facility issues.',
-    stack: ['React', 'JavaScript','Node.js', 'MongoDB'],
+    stack: ['React', 'JavaScript', 'Node.js', 'MongoDB', 'Hugging Face'],
     github: 'https://github.com/leoshamu/Smart-Campus-Service-System/tree/master',
     images: [
       {
@@ -123,7 +123,8 @@ export const featuredProjects = [
     ],
     detail:
       'Students can verify accounts with email OTPs, submit facility reports, track their progress, and review resolved reports while administrators prioritize and resolve issues.',
-    outcome: '',
+    outcome:
+      'Latest update: added semantic duplicate detection with Hugging Face sentence embeddings so similar complaints can be grouped even when students use different wording.',
   },
   {
     badge: 'Completed project',

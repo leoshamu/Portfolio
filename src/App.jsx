@@ -115,6 +115,7 @@ function DeferredHeroBeams() {
 }
 
 function App() {
+  const cvPath = `${import.meta.env.BASE_URL}Leo-Shamu-CV.pdf`
   const initials = profile.name
     .split(' ')
     .map((part) => part[0])
@@ -143,6 +144,18 @@ function App() {
       </header>
 
       <main id="top" className="site-main">
+        <section className="recruiter-cta reveal" aria-label="Recruiter quick access">
+          <div>
+            <p className="eyebrow">Recruiters</p>
+            <p className="recruiter-cta-copy">
+              Need a quick overview? Download my CV and review my projects below.
+            </p>
+          </div>
+          <a className="button button-primary" href={cvPath} download>
+            Download CV
+          </a>
+        </section>
+
         <section className="section hero">
           <div className="hero-copy reveal">
             <p className="eyebrow">{profile.role}</p>
@@ -152,6 +165,9 @@ function App() {
             <div className="hero-actions">
               <a className="button button-primary" href="#work">
                 View projects
+              </a>
+              <a className="button button-secondary" href={cvPath} download>
+                Download CV
               </a>
               <a className="button button-secondary" href="#skills">
                 View skills
@@ -381,6 +397,9 @@ function App() {
               <div className="contact-actions">
                 <a className="contact-link contact-link-primary" href={`mailto:${profile.email}`}>
                   Email me
+                </a>
+                <a className="contact-link" href={cvPath} download>
+                  Download CV
                 </a>
                 <a
                   className="contact-link"
