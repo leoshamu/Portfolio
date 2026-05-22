@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'portfolio-cache-v1'
+const CACHE_VERSION = 'portfolio-cache-v2'
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`
 const APP_SHELL = ['./', './index.html', './favicon.svg']
 
@@ -47,19 +47,15 @@ self.addEventListener('fetch', (event) => {
 
   if (isSameOrigin || isFontRequest) {
     event.respondWith(
-      caches.match(event.request).then((cached) => {
-        const networkFetch = fetch(event.request)
-          .then((response) => {
-            if (response.ok) {
-              const copy = response.clone()
-              caches.open(RUNTIME_CACHE).then((cache) => cache.put(event.request, copy))
-            }
-            return response
-          })
-          .catch(() => cached)
-
-        return cached || networkFetch
-      }),
+      fetch(event.request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone()
+            caches.open(RUNTIME_CACHE).then((cache) => cache.put(event.request, copy))
+          }
+          return response
+        })
+        .catch(() => caches.match(event.request)),
     )
   }
 })
