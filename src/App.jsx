@@ -269,7 +269,10 @@ function App() {
             description="These are the projects I want to highlight right now, and I will keep updating this section as I build more."
           />
 
-          <div className="project-grid">
+          <div
+            className="project-grid"
+            aria-label="Project showcase. Scroll horizontally to view more projects."
+          >
             {featuredProjects.map((project) => (
               <article key={project.title} className="project-card">
                 <p className="project-badge">{project.badge}</p>
