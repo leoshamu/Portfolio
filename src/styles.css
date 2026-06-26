@@ -891,19 +891,12 @@ ul {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .project-grid:has(.project-card:hover) .project-card:not(:hover),
-  .project-grid:has(.project-card:focus-within) .project-card:not(:focus-within) {
-    filter: blur(1.5px);
-    opacity: 0.74;
-    transform: scale(0.98);
-  }
-
   .project-card:hover,
   .project-card:focus-within {
     z-index: 5;
-    transform: translateY(-8px) scale(1.03);
+    transform: translateY(-14px) scale(1.15);
     border-color: rgba(23, 20, 18, 0.2);
-    box-shadow: 0 28px 72px rgba(23, 20, 18, 0.18);
+    box-shadow: 0 34px 92px rgba(23, 20, 18, 0.2);
   }
 }
 
