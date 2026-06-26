@@ -9,10 +9,10 @@ function HeroSection({ heroStats, profile, statusItems }) {
         <p className="lead">{profile.intro}</p>
 
         <div className="hero-actions">
-          <a className="button button-primary" href="#work">
+          <a className="button button-primary" href="#/work">
             View projects
           </a>
-          <a className="button button-secondary" href="#skills">
+          <a className="button button-secondary" href="#/skills">
             View skills
           </a>
         </div>

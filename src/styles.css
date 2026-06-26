@@ -171,13 +171,22 @@ ul {
 }
 
 .site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav a:focus-visible,
+.site-nav a[aria-current='page'] {
   color: var(--text);
+}
+
+.site-nav a[aria-current='page'] {
+  font-weight: 700;
 }
 
 .site-main {
   display: grid;
   gap: clamp(1rem, 3vw, 2.25rem);
+}
+
+.page-view {
+  animation: fade-up 420ms ease both;
 }
 
 .recruiter-cta {
@@ -209,7 +218,6 @@ ul {
   min-height: calc(100svh - 7rem);
   padding: clamp(4rem, 8vw, 7rem) 0;
   scroll-margin-top: 7rem;
-  scroll-snap-align: start;
 }
 
 .section:not(.hero) {
@@ -987,13 +995,6 @@ ul {
     transform: translateY(-10px) scale(1.04);
     border-color: rgba(23, 20, 18, 0.2);
     box-shadow: 0 34px 92px rgba(23, 20, 18, 0.2);
-  }
-}
-
-@media (min-width: 761px) {
-  html {
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 6.5rem;
   }
 }
 
