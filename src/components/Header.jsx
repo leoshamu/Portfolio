@@ -1,4 +1,5 @@
 const navItems = [
+  { label: 'Home', href: '#/', route: 'home' },
   { label: 'About', href: '#/about', route: 'about' },
   { label: 'Skills', href: '#/skills', route: 'skills' },
   { label: 'Work', href: '#/work', route: 'work' },
