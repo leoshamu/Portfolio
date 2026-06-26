@@ -176,7 +176,8 @@ ul {
 }
 
 .site-main {
-  display: block;
+  display: grid;
+  gap: clamp(1rem, 3vw, 2.25rem);
 }
 
 .recruiter-cta {
@@ -203,8 +204,12 @@ ul {
 }
 
 .section {
+  display: grid;
+  align-content: center;
+  min-height: calc(100svh - 7rem);
   padding: clamp(4rem, 8vw, 7rem) 0;
   scroll-margin-top: 7rem;
+  scroll-snap-align: start;
 }
 
 .section:not(.hero) {
@@ -985,6 +990,13 @@ ul {
   }
 }
 
+@media (min-width: 761px) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 6.5rem;
+  }
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -1017,7 +1029,7 @@ ul {
   }
 
   .hero {
-    min-height: auto;
+    min-height: calc(100svh - 7rem);
     padding-top: 1rem;
   }
 
@@ -1035,6 +1047,10 @@ ul {
   html,
   body {
     overscroll-behavior-x: none;
+  }
+
+  html {
+    scroll-snap-type: none;
   }
 
   body {
@@ -1084,6 +1100,8 @@ ul {
   }
 
   .section {
+    display: block;
+    min-height: auto;
     padding: 3.25rem 0;
   }
 
