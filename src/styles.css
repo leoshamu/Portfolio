@@ -590,6 +590,12 @@ ul {
   list-style: none;
 }
 
+.project-stack-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+}
+
 .skill-chip,
 .project-stack-chip {
   padding: 0.55rem 0.8rem;
@@ -599,9 +605,17 @@ ul {
   font-size: 0.92rem;
 }
 
+.project-stack-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.45rem;
+  text-align: center;
+}
+
 .project-grid {
   grid-auto-flow: column;
-  grid-auto-columns: minmax(320px, 390px);
+  grid-auto-columns: minmax(340px, 410px);
   grid-template-columns: none;
   align-items: stretch;
   gap: 1rem;
@@ -634,6 +648,7 @@ ul {
 
 .project-card {
   display: grid;
+  grid-template-rows: auto auto auto auto auto auto 1fr;
   gap: 1rem;
   min-height: 27rem;
   animation: fade-up 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -643,6 +658,41 @@ ul {
 
 .project-card:nth-child(2) {
   transform: translateY(1rem);
+}
+
+.project-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  margin: -1rem 0 1rem;
+}
+
+.project-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.project-arrow:hover,
+.project-arrow:focus-visible {
+  transform: translateY(-2px);
+  background: var(--surface-strong);
+  color: var(--cream);
+  box-shadow: var(--shadow-strong);
 }
 
 .project-badge {
@@ -711,8 +761,8 @@ ul {
 }
 
 .project-links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
   gap: 0.75rem;
 }
 
@@ -726,6 +776,7 @@ ul {
   background: var(--surface-strong);
   color: var(--cream);
   font-weight: 600;
+  text-align: center;
   box-shadow: var(--shadow-soft);
   transition:
     transform 180ms ease,
@@ -1047,10 +1098,14 @@ ul {
   }
 
   .hero-actions,
-  .contact-actions,
-  .project-links {
+  .contact-actions {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .project-carousel-controls {
+    justify-content: flex-start;
+    margin-top: -0.5rem;
   }
 
   .button,
@@ -1128,6 +1183,10 @@ ul {
   .project-stack-list,
   .skill-list {
     gap: 0.55rem;
+  }
+
+  .project-stack-list {
+    grid-template-columns: 1fr;
   }
 
   .project-stack-chip,

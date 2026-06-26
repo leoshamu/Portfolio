@@ -4,6 +4,7 @@ import {
   startTransition,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react'
 
@@ -116,12 +117,25 @@ function DeferredHeroBeams() {
 
 function App() {
   const cvPath = `${import.meta.env.BASE_URL}Leo-Shamu-CV.pdf`
+  const projectTrackRef = useRef(null)
   const initials = profile.name
     .split(' ')
     .map((part) => part[0])
     .join('')
     .slice(0, 2)
     .toUpperCase()
+
+  const scrollProjects = (direction) => {
+    const track = projectTrackRef.current
+    if (!track) return
+
+    const firstCard = track.querySelector('.project-card')
+    const cardWidth = firstCard?.getBoundingClientRect().width ?? 360
+    track.scrollBy({
+      left: direction * (cardWidth + 16),
+      behavior: 'smooth',
+    })
+  }
 
   return (
     <div className="page-shell">
@@ -269,7 +283,27 @@ function App() {
             description="These are the projects I want to highlight right now, and I will keep updating this section as I build more."
           />
 
+          <div className="project-carousel-controls" aria-label="Project carousel controls">
+            <button
+              className="project-arrow"
+              type="button"
+              aria-label="Show previous projects"
+              onClick={() => scrollProjects(-1)}
+            >
+              &larr;
+            </button>
+            <button
+              className="project-arrow"
+              type="button"
+              aria-label="Show next projects"
+              onClick={() => scrollProjects(1)}
+            >
+              &rarr;
+            </button>
+          </div>
+
           <div
+            ref={projectTrackRef}
             className="project-grid"
             aria-label="Project showcase. Scroll horizontally to view more projects."
           >
