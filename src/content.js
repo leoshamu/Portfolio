@@ -73,7 +73,7 @@ export const skillGroups = [
     title: 'Frontend Engineering',
     description:
       'I use these tools to build responsive and user-friendly interfaces.',
-    skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Responsive design', 'Component thinking'],
+    skills: ['React.js', 'Vite', 'JavaScript', 'HTML5', 'CSS3', 'Responsive web design', 'Component thinking'],
   },
   {
     title: 'Backend and APIs',
@@ -91,11 +91,30 @@ export const skillGroups = [
     title: 'Workflow and Mindset',
     description:
       'These are some of the habits and skills I bring into the way I work.',
-    skills: ['Git and GitHub', 'Problem solving', 'Code readability', 'UI planning', 'Continuous learning'],
+    skills: ['Git and GitHub', 'Web hosting', 'Domain management', 'Vercel deployment', 'SEO setup', 'Problem solving', 'Code readability', 'UI planning', 'Continuous learning'],
   },
 ]
 
 export const featuredProjects = [
+  {
+    badge: 'Client website',
+    title: 'Proxima Tyres Fitment Centre',
+    summary:
+      'A responsive business website for a tyre supply and fitment centre in Harare, Zimbabwe.',
+    stack: ['JavaScript', 'React.js', 'Web Hosting', 'Domain Management', 'Responsive Web Design', 'SEO'],
+    website: 'https://proximatyres.com',
+    github: '',
+    images: [
+      {
+        src: withBase('images/proxima-tyres-mobile.jpeg'),
+        alt: 'Proxima Tyres mobile homepage showing the hero section, navigation, calls to action, and WhatsApp contact button',
+      },
+    ],
+    detail:
+      'I designed and built a bold, clean, automotive-focused website that presents the business professionally across desktop and mobile. The site includes products, services, about, FAQ, contact, location, quote request, working hours, privacy policy, and clickable WhatsApp, Facebook, and Instagram links.',
+    outcome:
+      'The project included mobile polish, fixed navigation across pages and sections, SEO metadata, sitemap, robots.txt, canonical links, Google Search Console setup, DNS verification, an indexing request, Vercel deployment, and a temporary under-construction curtain before final client approval.',
+  },
   {
     badge: 'Completed project',
     title: 'Smart Campus Service System',

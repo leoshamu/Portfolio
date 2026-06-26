@@ -324,16 +324,28 @@ function App() {
                     </li>
                   ))}
                 </ul>
-                {project.github ? (
+                {project.website || project.github ? (
                   <div className="project-links">
-                    <a
-                      className="project-link-button"
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      View GitHub
-                    </a>
+                    {project.website ? (
+                      <a
+                        className="project-link-button"
+                        href={project.website}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Visit Website
+                      </a>
+                    ) : null}
+                    {project.github ? (
+                      <a
+                        className="project-link-button"
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        View GitHub
+                      </a>
+                    ) : null}
                   </div>
                 ) : null}
                 {project.outcome ? (
