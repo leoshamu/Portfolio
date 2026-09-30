@@ -97,6 +97,7 @@ export const skillGroups = [
 
 export const featuredProjects = [
   {
+    slug: 'proxima-tyres-fitment-centre',
     badge: 'Client website',
     title: 'Proxima Tyres Fitment Centre',
     summary:
@@ -116,6 +117,7 @@ export const featuredProjects = [
       'The project included mobile polish, fixed navigation across pages and sections, SEO metadata, sitemap, robots.txt, canonical links, Google Search Console setup, DNS verification, an indexing request, Vercel deployment, and a temporary under-construction curtain before final client approval.',
   },
   {
+    slug: 'smart-campus-service-system',
     badge: 'Completed project',
     title: 'Smart Campus Service System',
     summary:
@@ -146,6 +148,7 @@ export const featuredProjects = [
       'Latest update: added semantic duplicate detection with Hugging Face sentence embeddings so similar complaints can be grouped even when students use different wording.',
   },
   {
+    slug: 'telecom-support-ticket-dashboard',
     badge: 'Completed project',
     title: 'Telecom Support Ticket Dashboard',
     summary:
@@ -175,6 +178,7 @@ export const featuredProjects = [
     outcome: '',
   },
   {
+    slug: 'uz-off-campus-accommodation',
     badge: 'Featured project',
     title: 'UZ Off Campus Accommodation',
     summary:

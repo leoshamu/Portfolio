@@ -7,9 +7,14 @@ function RecruiterCta({ cvPath }) {
           Need a quick overview? Download my CV and review my projects below.
         </p>
       </div>
-      <a className="button button-primary" href={cvPath} download>
-        Download CV
-      </a>
+      <div className="recruiter-cta-actions">
+        <a className="button button-secondary" href="/cv/">
+          View CV
+        </a>
+        <a className="button button-primary" href={cvPath} download>
+          Download CV
+        </a>
+      </div>
     </section>
   )
 }

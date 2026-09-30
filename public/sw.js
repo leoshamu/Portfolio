@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'portfolio-cache-v2'
+const CACHE_VERSION = 'portfolio-cache-v3'
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`
 const APP_SHELL = ['./', './index.html', './favicon.svg']
 

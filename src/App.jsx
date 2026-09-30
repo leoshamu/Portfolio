@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 import './styles.css'
 import {
   featuredProjects,
@@ -13,36 +11,37 @@ import {
 import Header from './components/Header'
 import AboutSection from './sections/AboutSection'
 import ContactSection from './sections/ContactSection'
+import CvSection from './sections/CvSection'
 import HeroSection from './sections/HeroSection'
 import PrinciplesSection from './sections/PrinciplesSection'
+import ProjectDetailSection from './sections/ProjectDetailSection'
 import RecruiterCta from './sections/RecruiterCta'
 import SkillsSection from './sections/SkillsSection'
 import WorkSection from './sections/WorkSection'
+import { findSeoPage } from './seoPages'
 
-const routes = ['home', 'about', 'skills', 'work', 'contact']
-
-function getRouteFromHash() {
-  const route = window.location.hash.replace(/^#\/?/, '') || 'home'
-  return routes.includes(route) ? route : 'home'
+const legacyRoutes = {
+  about: '/about/',
+  skills: '/skills/',
+  work: '/projects/',
+  projects: '/projects/',
+  contact: '/contact/',
 }
 
 function App() {
   const cvPath = `${import.meta.env.BASE_URL}Leo-Shamu-CV.pdf`
-  const [activeRoute, setActiveRoute] = useState(getRouteFromHash)
+  const legacyRoute = window.location.hash.replace(/^#\/?/, '')
+  if (legacyRoutes[legacyRoute]) {
+    window.location.replace(legacyRoutes[legacyRoute])
+    return null
+  }
 
-  useEffect(() => {
-    const handleHashChange = () => {
-      setActiveRoute(getRouteFromHash())
-      window.scrollTo({ top: 0, behavior: 'auto' })
-    }
-
-    window.addEventListener('hashchange', handleHashChange)
-    return () => window.removeEventListener('hashchange', handleHashChange)
-  }, [])
-
-  const pageTitle = activeRoute === 'home'
-    ? 'Home'
-    : activeRoute.charAt(0).toUpperCase() + activeRoute.slice(1)
+  const currentPage = findSeoPage(window.location.pathname)
+  const activeRoute = currentPage.route
+  const selectedProject = activeRoute === 'project'
+    ? featuredProjects.find((project) => project.slug === currentPage.slug)
+    : null
+  const pageLabel = currentPage.name ?? currentPage.title.split('|')[0].trim()
 
   return (
     <div className="page-shell">
@@ -51,7 +50,7 @@ function App() {
 
       <Header activeRoute={activeRoute} profile={profile} />
 
-      <main className="site-main page-view" aria-label={`${pageTitle} page`}>
+      <main className="site-main page-view" aria-label={`${pageLabel} page`}>
         {activeRoute === 'home' ? (
           <>
             <RecruiterCta cvPath={cvPath} />
@@ -74,18 +73,35 @@ function App() {
           <SkillsSection skillGroups={skillGroups} />
         ) : null}
 
-        {activeRoute === 'work' ? (
+        {activeRoute === 'projects' ? (
           <WorkSection featuredProjects={featuredProjects} />
+        ) : null}
+
+        {activeRoute === 'cv' ? (
+          <CvSection cvPath={cvPath} profile={profile} />
         ) : null}
 
         {activeRoute === 'contact' ? (
           <ContactSection cvPath={cvPath} profile={profile} />
         ) : null}
+
+        {activeRoute === 'project' && selectedProject ? (
+          <ProjectDetailSection project={selectedProject} />
+        ) : null}
       </main>
 
       <footer className="site-footer">
-        <p>&copy; 2026 {profile.name}</p>
-        <p>{profile.role}</p>
+        <div>
+          <p>&copy; 2026 {profile.name}</p>
+          <p>{profile.role}</p>
+        </div>
+        <nav className="footer-nav" aria-label="Footer navigation">
+          <a href="/about/">About</a>
+          <a href="/skills/">Skills</a>
+          <a href="/projects/">Projects</a>
+          <a href="/cv/">CV</a>
+          <a href="/contact/">Contact</a>
+        </nav>
       </footer>
     </div>
   )

@@ -7,6 +7,7 @@ function SkillsSection({ skillGroups }) {
         eyebrow="Skills"
         title="Tools and skills I work with."
         description="These are the main technologies and areas I have been learning and using in my projects."
+        headingLevel="h1"
       />
 
       <div className="skill-grid">

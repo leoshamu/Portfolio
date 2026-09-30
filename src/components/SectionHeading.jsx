@@ -1,9 +1,11 @@
-function SectionHeading({ eyebrow, title, description }) {
+function SectionHeading({ eyebrow, title, description, headingLevel = 'h2' }) {
+  const Heading = headingLevel
+
   return (
     <div className="section-heading">
       <div>
         <p className="eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
+        <Heading>{title}</Heading>
       </div>
       <p className="section-description">{description}</p>
     </div>

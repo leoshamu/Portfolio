@@ -5,7 +5,7 @@ import App from './App'
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register(`${import.meta.env.BASE_URL}sw.js?v=2`)
+      .register(`${import.meta.env.BASE_URL}sw.js?v=3`)
       .catch(() => {})
   })
 }

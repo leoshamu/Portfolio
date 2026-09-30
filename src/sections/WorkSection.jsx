@@ -31,6 +31,7 @@ function WorkSection({ featuredProjects }) {
         eyebrow="Projects"
         title="Some of the projects I have worked on."
         description="These are the projects I want to highlight right now, and I will keep updating this section as I build more."
+        headingLevel="h1"
       />
 
       <div className="project-carousel-controls" aria-label="Project carousel controls">
@@ -116,6 +117,12 @@ function WorkSection({ featuredProjects }) {
               </ul>
               {project.website || project.github ? (
                 <div className="project-links">
+                  <a
+                    className="project-link-button project-link-button-secondary"
+                    href={`/projects/${project.slug}/`}
+                  >
+                    View Case Study
+                  </a>
                   {project.website ? (
                     <a
                       className="project-link-button"
@@ -136,6 +143,17 @@ function WorkSection({ featuredProjects }) {
                       View GitHub
                     </a>
                   ) : null}
+                </div>
+              ) : null}
+
+              {!project.website && !project.github ? (
+                <div className="project-links">
+                  <a
+                    className="project-link-button project-link-button-secondary"
+                    href={`/projects/${project.slug}/`}
+                  >
+                    View Case Study
+                  </a>
                 </div>
               ) : null}
 

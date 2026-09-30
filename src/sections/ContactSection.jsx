@@ -11,7 +11,7 @@ function ContactSection({ cvPath, profile }) {
           </p>
 
           <p className="eyebrow">Contact</p>
-          <h2>I am open to opportunities and connections.</h2>
+          <h1>I am open to opportunities and connections.</h1>
           <p>
             If you would like to reach out about an internship, junior role,
             or project, feel free to contact me.

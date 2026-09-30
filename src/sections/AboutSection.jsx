@@ -4,6 +4,12 @@ function AboutSection({ highlights, profile }) {
   return (
     <>
       <section className="section section-tight" id="about">
+        <SectionHeading
+          eyebrow="About"
+          title="About Leo Shamu."
+          description="A software engineer focused on useful full-stack applications, clear interfaces, and practical problem solving."
+          headingLevel="h1"
+        />
         <div className="highlights-grid">
           {highlights.map((item, index) => (
             <article
@@ -19,8 +25,8 @@ function AboutSection({ highlights, profile }) {
 
       <section className="section story">
         <SectionHeading
-          eyebrow="About"
-          title="A little about me."
+          eyebrow="My story"
+          title="How I approach software engineering."
           description="This section gives a quick idea of who I am, what I use, and the kind of work I enjoy doing."
         />
 
