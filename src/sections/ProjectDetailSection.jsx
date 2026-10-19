@@ -33,7 +33,20 @@ function ProjectDetailSection({ project }) {
         <article className="project-detail-copy">
           <p className="eyebrow">Case study</p>
           <h2>What I built</h2>
+          {project.role ? (
+            <p className="project-role"><strong>Role:</strong> {project.role}</p>
+          ) : null}
           <p>{project.detail || project.summary}</p>
+          {project.keyFeatures?.length ? (
+            <div className="project-feature-list">
+              {project.keyFeatures.map((feature) => (
+                <section key={feature.title} className="project-feature-item">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.body}</p>
+                </section>
+              ))}
+            </div>
+          ) : null}
           {project.outcome ? (
             <>
               <h2>Implementation and outcome</h2>
@@ -44,11 +57,26 @@ function ProjectDetailSection({ project }) {
 
         <aside className="project-detail-aside">
           <p className="eyebrow">Technologies</p>
-          <ul className="project-stack-list">
-            {project.stack.map((item) => (
-              <li key={item} className="project-stack-chip">{item}</li>
-            ))}
-          </ul>
+          {project.techGroups?.length ? (
+            <div className="project-tech-groups">
+              {project.techGroups.map((group) => (
+                <section key={group.label} className="project-tech-group">
+                  <h3>{group.label}</h3>
+                  <ul className="project-stack-list">
+                    {group.items.map((item) => (
+                      <li key={item} className="project-stack-chip">{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <ul className="project-stack-list">
+              {project.stack.map((item) => (
+                <li key={item} className="project-stack-chip">{item}</li>
+              ))}
+            </ul>
+          )}
           <div className="project-links">
             {project.website ? (
               <a className="project-link-button" href={project.website} target="_blank" rel="noreferrer">

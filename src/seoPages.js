@@ -30,7 +30,7 @@ export const corePages = [
     path: '/projects/',
     title: 'Software Projects | Leo Shamu',
     description:
-      'View full-stack applications and business websites built by Leo Shamu, including Smart Campus Service System and Proxima Tyres Fitment Centre.',
+      'View full-stack applications and business websites built by Leo Shamu, including Exeter Bazaar, Smart Campus Service System, and Proxima Tyres Fitment Centre.',
     schemaType: 'CollectionPage',
   },
   {
@@ -52,6 +52,13 @@ export const corePages = [
 ]
 
 export const projectPages = [
+  {
+    slug: 'exeter-bazaar',
+    title: 'Exeter Bazaar Retail Platform Case Study | Leo Shamu',
+    name: 'Exeter Bazaar',
+    description:
+      'A live React, Node.js, Express, and MariaDB retail website and custom catalogue-management platform designed, developed, deployed, and handed over by Leo Shamu.',
+  },
   {
     slug: 'proxima-tyres-fitment-centre',
     title: 'Proxima Tyres Fitment Centre Case Study | Leo Shamu',

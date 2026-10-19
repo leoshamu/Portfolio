@@ -1003,6 +1003,47 @@ ul {
   color: var(--muted);
 }
 
+.project-detail-copy .project-role {
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  background: rgba(23, 75, 70, 0.06);
+  color: var(--text);
+}
+
+.project-feature-list,
+.project-tech-groups {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.project-feature-item {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.project-feature-item h3,
+.project-tech-group h3 {
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.project-feature-item p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.project-tech-group + .project-tech-group {
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.project-tech-group .project-stack-list {
+  margin-top: 0.65rem;
+}
+
 .cv-facts {
   display: grid;
   gap: 0.8rem;

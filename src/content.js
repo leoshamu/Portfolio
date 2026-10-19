@@ -79,23 +79,76 @@ export const skillGroups = [
     title: 'Backend and APIs',
     description:
       'I use backend tools to handle data, app logic, and server-side features.',
-    skills: ['Node.js', 'REST APIs', 'Authentication flow', 'AI integrations', 'Java', 'Object-oriented design', 'Debugging'],
+    skills: ['Node.js', 'Express', 'REST APIs', 'Authentication and security', 'AI integrations', 'Java', 'Object-oriented design', 'Debugging'],
   },
   {
     title: 'Data and Persistence',
     description:
       'I use databases to store, manage, and organize application data.',
-    skills: ['MongoDB', 'CRUD operations', 'Schema thinking', 'Data modeling', 'Semantic matching', 'Query planning'],
+    skills: ['MariaDB', 'MySQL', 'MongoDB', 'SQL migrations', 'CRUD operations', 'Schema thinking', 'Data modeling', 'Semantic matching', 'Query planning'],
   },
   {
     title: 'Workflow and Mindset',
     description:
       'These are some of the habits and skills I bring into the way I work.',
-    skills: ['Git and GitHub', 'Web hosting', 'Domain management', 'Vercel deployment', 'SEO setup', 'Problem solving', 'Code readability', 'UI planning', 'Continuous learning'],
+    skills: ['Git and GitHub', 'Playwright', 'Web hosting', 'Cloudflare', 'Domain management', 'Vercel deployment', 'SEO setup', 'Problem solving', 'Code readability', 'UI planning', 'Continuous learning'],
   },
 ]
 
 export const featuredProjects = [
+  {
+    slug: 'exeter-bazaar',
+    badge: 'Live client platform',
+    title: 'Exeter Bazaar',
+    role: 'Full-stack development, deployment and technical handover',
+    summary:
+      'A responsive retail website and custom catalogue-management platform for a UK grocery business.',
+    stack: ['React 19', 'Node.js 22', 'Express 5', 'MariaDB', 'REST APIs', 'Playwright', 'Cloudflare'],
+    techGroups: [
+      {
+        label: 'Frontend',
+        items: ['React 19', 'JavaScript', 'React Router 7', 'Vite 8', 'HTML5', 'Custom CSS', 'Lucide React'],
+      },
+      {
+        label: 'Backend and data',
+        items: ['Node.js 22', 'Express 5', 'REST APIs', 'MariaDB', 'mysql2', 'Sharp', 'SQL migrations'],
+      },
+      {
+        label: 'Testing and delivery',
+        items: ['Node.js Test Runner', 'Playwright', 'Chromium', 'WebKit', 'NivaCity', 'DirectAdmin', 'Cloudflare', 'HTTPS/TLS'],
+      },
+    ],
+    website: 'https://www.exeterbazaar.co.uk',
+    github: '',
+    images: [
+      {
+        src: withBase('images/exeter-bazaar-home.png'),
+        alt: 'Exeter Bazaar homepage with product search, department navigation, store information, and grocery branding',
+      },
+    ],
+    detail:
+      'I designed and developed the public shopping experience and a custom administration portal. Customers can browse a department-based catalogue, search by keyword, filter products, and move through paginated results, while staff can create and edit products, manage prices and publication status, and upload product images without touching code.',
+    keyFeatures: [
+      {
+        title: 'Fast catalogue browsing',
+        body: 'Request caching, deduplicated API calls, navigation prefetching, optimized images, and retained page state keep browsing and return navigation responsive.',
+      },
+      {
+        title: 'Staff-friendly administration',
+        body: 'The dashboard organizes products by department and supports product creation, editing, pricing, publication controls, image uploads, and safe leave confirmation.',
+      },
+      {
+        title: 'Production security',
+        body: 'Server-side rate limiting, salted password hashing, HTTP-only session cookies, CSRF protection, parameterized SQL queries, and inactivity-based logout protect the admin workflow.',
+      },
+      {
+        title: 'Search visibility',
+        body: 'Pre-rendered public pages, page-specific metadata, canonical URLs, structured business data, an XML sitemap, and indexing controls support SEO.',
+      },
+    ],
+    outcome:
+      'Delivered a live, database-backed retail platform with a consistent public-facing design and a scalable catalogue workflow, enabling Exeter Bazaar staff to maintain their product range independently. Email-code verification was also developed with Nodemailer and is ready to enable once SMTP is configured.',
+  },
   {
     slug: 'proxima-tyres-fitment-centre',
     badge: 'Client website',
