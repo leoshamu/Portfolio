@@ -752,7 +752,7 @@ ul {
   border: 0;
   color: inherit;
   font: inherit;
-  cursor: zoom-in;
+  cursor: default;
 }
 
 .project-gallery-main {
@@ -1067,7 +1067,7 @@ ul {
   overflow: hidden;
   border: 0;
   background: #fff;
-  cursor: zoom-in;
+  cursor: default;
 }
 
 .work-desktop-shot {
@@ -1697,23 +1697,23 @@ ul {
   margin: 0;
   padding: clamp(1rem, 4vw, 3rem);
   border: 0;
-  background: rgba(6, 19, 18, 0.94);
-  backdrop-filter: blur(12px);
+  background: transparent;
+  cursor: default;
 }
 
 .image-lightbox::backdrop {
-  background: rgba(6, 19, 18, 0.94);
+  background: rgba(244, 239, 231, 0.9);
 }
 
 .image-lightbox img {
   display: block;
   width: auto;
-  max-width: min(100%, 1400px);
+  max-width: 100%;
   height: auto;
-  max-height: calc(100vh - 4rem);
+  max-height: calc(100dvh - 6rem);
   object-fit: contain;
-  border-radius: 20px;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+  border-radius: 0;
+  box-shadow: 0 8px 30px rgba(23, 20, 18, 0.14);
 }
 
 .image-lightbox-close {
@@ -1726,10 +1726,10 @@ ul {
   height: 3rem;
   place-items: center;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
+  background: #fff;
+  color: var(--text);
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
