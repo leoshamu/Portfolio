@@ -1,193 +1,186 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 import ImageLightbox from '../components/ImageLightbox'
 import SectionHeading from '../components/SectionHeading'
 
+function ProjectActions({ project, compact = false }) {
+  return (
+    <div className={compact ? 'work-actions work-actions-compact' : 'work-actions'}>
+      <a className="work-action work-action-primary" href={`/projects/${project.slug}/`}>
+        View case study <span aria-hidden="true">&rarr;</span>
+      </a>
+      {project.website ? (
+        <a className="work-action" href={project.website} target="_blank" rel="noreferrer">
+          Visit website <span aria-hidden="true">↗</span>
+        </a>
+      ) : null}
+      {project.github ? (
+        <a className="work-action" href={project.github} target="_blank" rel="noreferrer">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      ) : null}
+    </div>
+  )
+}
+
+function ScreenshotButton({ image, project, className, eager = false, onOpen }) {
+  if (!image) return null
+
+  return (
+    <button
+      className={className}
+      type="button"
+      aria-label={`Open ${project.title} screenshot`}
+      onClick={() => onOpen({ image, projectTitle: project.title })}
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        className={image.fit === 'contain' ? 'project-image-contain' : undefined}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchPriority={eager ? 'high' : 'low'}
+      />
+    </button>
+  )
+}
+
 function WorkSection({ featuredProjects }) {
-  const projectTrackRef = useRef(null)
-  const [expandedProject, setExpandedProject] = useState(null)
   const [lightbox, setLightbox] = useState(null)
-
-  const scrollProjects = (direction) => {
-    const track = projectTrackRef.current
-    if (!track) return
-
-    const firstCard = track.querySelector('.project-card')
-    const cardWidth = firstCard?.getBoundingClientRect().width ?? 360
-    track.scrollBy({
-      left: direction * (cardWidth + 16),
-      behavior: 'smooth',
-    })
-  }
-
-  const toggleProjectDetails = (title) => {
-    setExpandedProject((currentTitle) => (currentTitle === title ? null : title))
-  }
+  const [leadProject, ...remainingProjects] = featuredProjects
+  const spotlightProjects = remainingProjects.slice(0, 2)
+  const otherProjects = remainingProjects.slice(2)
+  const leadDesktopImage = leadProject?.images?.[1] ?? leadProject?.images?.[0]
+  const leadMobileImage = leadProject?.images?.find((image) => image.fit === 'contain')
 
   return (
     <section className="section work" id="work">
-      <div className="projects-intro-quote">
-        <p className="quote-text">"I want my work to speak for itself."</p>
+      <div className="work-intro-note">
+        <span>Selected work</span>
+        <p>Products built with purpose, polished for real users, and shipped to the web.</p>
       </div>
+
       <SectionHeading
         eyebrow="Projects"
-        title="Some of the projects I have worked on."
-        description="These are the projects I want to highlight right now, and I will keep updating this section as I build more."
+        title="Work that solves real problems."
+        description="A focused selection of client platforms and full-stack applications—from business websites to secure, database-backed systems."
         headingLevel="h1"
       />
 
-      <div className="project-carousel-controls" aria-label="Project carousel controls">
-        <button
-          className="project-arrow"
-          type="button"
-          aria-label="Show previous projects"
-          onClick={() => scrollProjects(-1)}
-        >
-          &larr;
-        </button>
-        <button
-          className="project-arrow"
-          type="button"
-          aria-label="Show next projects"
-          onClick={() => scrollProjects(1)}
-        >
-          &rarr;
-        </button>
+      {leadProject ? (
+        <article className="work-feature">
+          <div className="work-feature-copy">
+            <div className="work-kicker-row">
+              <span className="work-number">01</span>
+              <span className="work-live-indicator"><i aria-hidden="true" /> Live client platform</span>
+            </div>
+
+            <div className="work-feature-heading">
+              <p className="work-client-label">Featured case study</p>
+              <h2>{leadProject.title}</h2>
+              <p className="work-feature-summary">{leadProject.summary}</p>
+            </div>
+
+            <div className="work-feature-meta">
+              <p className="work-meta-label">My role</p>
+              <p>{leadProject.role}</p>
+            </div>
+
+            <ul className="work-tech-list" aria-label={`${leadProject.title} technologies`}>
+              {leadProject.stack.slice(0, 6).map((item) => <li key={item}>{item}</li>)}
+            </ul>
+
+            <ProjectActions project={leadProject} />
+          </div>
+
+          <div className="work-feature-visual">
+            <span className="work-visual-label">Responsive retail experience</span>
+            <ScreenshotButton
+              image={leadDesktopImage}
+              project={leadProject}
+              className="work-desktop-shot"
+              eager
+              onOpen={setLightbox}
+            />
+            <ScreenshotButton
+              image={leadMobileImage}
+              project={leadProject}
+              className="work-mobile-shot"
+              eager
+              onOpen={setLightbox}
+            />
+            <span className="work-image-hint">Click either screen to enlarge</span>
+          </div>
+        </article>
+      ) : null}
+
+      <div className="work-section-label">
+        <div>
+          <p className="eyebrow">More selected work</p>
+          <h2>Designed, developed and delivered.</h2>
+        </div>
+        <p>Each project represents a different real-world problem, technical challenge, and opportunity to build something useful.</p>
       </div>
 
-      <div
-        ref={projectTrackRef}
-        className="project-grid"
-        aria-label="Project showcase. Scroll horizontally to view more projects."
-      >
-        {featuredProjects.map((project) => {
-          const isExpanded = expandedProject === project.title
-          const hasMoreDetails = Boolean(project.detail || project.outcome)
+      <div className="work-spotlight-grid">
+        {spotlightProjects.map((project, index) => (
+          <article key={project.title} className={`work-spotlight-card work-spotlight-card-${index + 1}`}>
+            <div className="work-spotlight-media">
+              <ScreenshotButton
+                image={project.images?.[0]}
+                project={project}
+                className="work-spotlight-image"
+                onOpen={setLightbox}
+              />
+              <span className="work-spotlight-number">0{index + 2}</span>
+            </div>
 
-          return (
-            <article key={project.title} className="project-card">
-              <p className="project-badge">{project.badge}</p>
-              <h3>{project.title}</h3>
-              {project.images?.length ? (
-                <div className="project-gallery">
-                  <div className="project-gallery-main">
-                    <button
-                      className="project-image-button"
-                      type="button"
-                      aria-label={`Open ${project.title} main screenshot`}
-                      onClick={() => setLightbox({ image: project.images[0], projectTitle: project.title })}
-                    >
-                      <img
-                        src={project.images[0].src}
-                        alt={project.images[0].alt}
-                        className={project.images[0].fit === 'contain' ? 'project-image-contain' : undefined}
-                        loading="lazy"
-                        decoding="async"
-                        fetchPriority="low"
-                      />
-                    </button>
-                  </div>
-                  <div className="project-gallery-strip">
-                    {project.images.slice(1).map((image) => (
-                      <div key={image.src} className="project-gallery-thumb">
-                        <button
-                          className="project-image-button"
-                          type="button"
-                          aria-label={`Open screenshot for ${project.title}`}
-                          onClick={() => setLightbox({ image, projectTitle: project.title })}
-                        >
-                          <img
-                            src={image.src}
-                            alt={image.alt}
-                            className={image.fit === 'contain' ? 'project-image-contain' : undefined}
-                            loading="lazy"
-                            decoding="async"
-                            fetchPriority="low"
-                          />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-              <p className="project-summary">{project.summary}</p>
-
-              <ul className="project-stack-list">
-                {project.stack.map((item) => (
-                  <li key={item} className="project-stack-chip">
-                    {item}
-                  </li>
-                ))}
+            <div className="work-spotlight-copy">
+              <div>
+                <p className="project-badge">{project.badge}</p>
+                <h3>{project.title}</h3>
+              </div>
+              <p className="work-spotlight-summary">{project.summary}</p>
+              <ul className="work-tech-list work-tech-list-dark" aria-label={`${project.title} technologies`}>
+                {project.stack.slice(0, 5).map((item) => <li key={item}>{item}</li>)}
               </ul>
-              {project.website || project.github ? (
-                <div className="project-links">
-                  <a
-                    className="project-link-button project-link-button-secondary"
-                    href={`/projects/${project.slug}/`}
-                  >
-                    View Case Study
-                  </a>
-                  {project.website ? (
-                    <a
-                      className="project-link-button"
-                      href={project.website}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Visit Website
-                    </a>
-                  ) : null}
-                  {project.github ? (
-                    <a
-                      className="project-link-button"
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      View GitHub
-                    </a>
-                  ) : null}
-                </div>
-              ) : null}
-
-              {!project.website && !project.github ? (
-                <div className="project-links">
-                  <a
-                    className="project-link-button project-link-button-secondary"
-                    href={`/projects/${project.slug}/`}
-                  >
-                    View Case Study
-                  </a>
-                </div>
-              ) : null}
-
-              {hasMoreDetails ? (
-                <div className="project-read-more-area">
-                  <button
-                    className="project-read-more"
-                    type="button"
-                    aria-expanded={isExpanded}
-                    onClick={() => toggleProjectDetails(project.title)}
-                  >
-                    {isExpanded ? 'Show less' : 'Read more'}
-                  </button>
-
-                  {isExpanded ? (
-                    <div className="project-extra-details">
-                      {project.detail ? (
-                        <p className="project-detail">{project.detail}</p>
-                      ) : null}
-                      {project.outcome ? (
-                        <p className="project-outcome">{project.outcome}</p>
-                      ) : null}
-                    </div>
-                  ) : null}
-                </div>
-              ) : null}
-            </article>
-          )
-        })}
+              <ProjectActions project={project} compact />
+            </div>
+          </article>
+        ))}
       </div>
+
+      {otherProjects.length ? (
+        <section className="work-archive" aria-labelledby="other-projects-title">
+          <div className="work-archive-heading">
+            <div>
+              <p className="eyebrow">Other builds</p>
+              <h2 id="other-projects-title">More problems explored through code.</h2>
+            </div>
+            <span>{String(otherProjects.length).padStart(2, '0')} projects</span>
+          </div>
+
+          <div className="work-archive-grid">
+            {otherProjects.map((project, index) => (
+              <article key={project.title} className="work-archive-card">
+                <div className="work-archive-topline">
+                  <span>0{index + 4}</span>
+                  <span>{project.badge}</span>
+                </div>
+                <div>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                </div>
+                <ul className="work-archive-stack" aria-label={`${project.title} technologies`}>
+                  {project.stack.slice(0, 4).map((item) => <li key={item}>{item}</li>)}
+                </ul>
+                <ProjectActions project={project} compact />
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <ImageLightbox
         image={lightbox?.image}
         projectTitle={lightbox?.projectTitle}

@@ -1,31 +1,34 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 
 function ImageLightbox({ image, projectTitle, onClose }) {
+  const dialogRef = useRef(null)
+
   useEffect(() => {
     if (!image) return undefined
 
     const previousOverflow = document.body.style.overflow
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
-    }
 
     document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleKeyDown)
+    dialogRef.current?.showModal()
 
     return () => {
       document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', handleKeyDown)
+      if (dialogRef.current?.open) dialogRef.current.close()
     }
   }, [image, onClose])
 
   if (!image) return null
 
-  return (
-    <div
+  return createPortal(
+    <dialog
+      ref={dialogRef}
       className="image-lightbox"
-      role="dialog"
-      aria-modal="true"
       aria-label={`${projectTitle} screenshot`}
+      onCancel={(event) => {
+        event.preventDefault()
+        onClose()
+      }}
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose()
       }}
@@ -40,7 +43,8 @@ function ImageLightbox({ image, projectTitle, onClose }) {
         &times;
       </button>
       <img src={image.src} alt={image.alt} />
-    </div>
+    </dialog>,
+    document.body,
   )
 }
 

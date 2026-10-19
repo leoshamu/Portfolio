@@ -171,6 +171,7 @@ export const featuredProjects = [
       {
         src: withBase('images/proxima-tyres-mobile.jpeg'),
         alt: 'Proxima Tyres mobile homepage showing the hero section, navigation, calls to action, and WhatsApp contact button',
+        fit: 'contain',
       },
     ],
     detail:
