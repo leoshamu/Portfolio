@@ -739,10 +739,20 @@ ul {
 }
 
 .project-gallery-main a,
-.project-gallery-thumb a {
+.project-gallery-thumb a,
+.project-image-button {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.project-image-button,
+.project-detail-image {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: zoom-in;
 }
 
 .project-gallery-main {
@@ -1139,6 +1149,53 @@ ul {
 .project-detail-image img.project-image-contain {
   object-fit: contain;
   background: #fff;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(6, 19, 18, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.image-lightbox img {
+  display: block;
+  width: auto;
+  max-width: min(100%, 1400px);
+  height: auto;
+  max-height: calc(100vh - 4rem);
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+}
+
+.image-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.image-lightbox-close:hover,
+.image-lightbox-close:focus-visible {
+  background: #fff;
+  color: var(--text);
 }
 
 .project-detail-aside .project-stack-chip {

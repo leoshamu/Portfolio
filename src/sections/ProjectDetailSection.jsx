@@ -1,4 +1,10 @@
+import { useState } from 'react'
+
+import ImageLightbox from '../components/ImageLightbox'
+
 function ProjectDetailSection({ project }) {
+  const [selectedImage, setSelectedImage] = useState(null)
+
   return (
     <section className="section project-detail-page">
       <a className="project-back-link" href="/projects/">
@@ -16,12 +22,12 @@ function ProjectDetailSection({ project }) {
       {project.images?.length ? (
         <div className="project-detail-gallery">
           {project.images.map((image, index) => (
-            <a
+            <button
               key={image.src}
               className={index === 0 ? 'project-detail-image project-detail-image-main' : 'project-detail-image'}
-              href={image.src}
-              target="_blank"
-              rel="noreferrer"
+              type="button"
+              aria-label={`Open ${project.title} screenshot`}
+              onClick={() => setSelectedImage(image)}
             >
               <img
                 src={image.src}
@@ -29,7 +35,7 @@ function ProjectDetailSection({ project }) {
                 className={image.fit === 'contain' ? 'project-image-contain' : undefined}
                 decoding="async"
               />
-            </a>
+            </button>
           ))}
         </div>
       ) : null}
@@ -96,6 +102,11 @@ function ProjectDetailSection({ project }) {
           </div>
         </aside>
       </div>
+      <ImageLightbox
+        image={selectedImage}
+        projectTitle={project.title}
+        onClose={() => setSelectedImage(null)}
+      />
     </section>
   )
 }

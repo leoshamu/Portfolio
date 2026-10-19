@@ -1,10 +1,12 @@
 import { useRef, useState } from 'react'
 
+import ImageLightbox from '../components/ImageLightbox'
 import SectionHeading from '../components/SectionHeading'
 
 function WorkSection({ featuredProjects }) {
   const projectTrackRef = useRef(null)
   const [expandedProject, setExpandedProject] = useState(null)
+  const [lightbox, setLightbox] = useState(null)
 
   const scrollProjects = (direction) => {
     const track = projectTrackRef.current
@@ -69,11 +71,11 @@ function WorkSection({ featuredProjects }) {
               {project.images?.length ? (
                 <div className="project-gallery">
                   <div className="project-gallery-main">
-                    <a
-                      href={project.images[0].src}
-                      target="_blank"
-                      rel="noreferrer"
+                    <button
+                      className="project-image-button"
+                      type="button"
                       aria-label={`Open ${project.title} main screenshot`}
+                      onClick={() => setLightbox({ image: project.images[0], projectTitle: project.title })}
                     >
                       <img
                         src={project.images[0].src}
@@ -83,16 +85,16 @@ function WorkSection({ featuredProjects }) {
                         decoding="async"
                         fetchPriority="low"
                       />
-                    </a>
+                    </button>
                   </div>
                   <div className="project-gallery-strip">
                     {project.images.slice(1).map((image) => (
                       <div key={image.src} className="project-gallery-thumb">
-                        <a
-                          href={image.src}
-                          target="_blank"
-                          rel="noreferrer"
+                        <button
+                          className="project-image-button"
+                          type="button"
                           aria-label={`Open screenshot for ${project.title}`}
+                          onClick={() => setLightbox({ image, projectTitle: project.title })}
                         >
                           <img
                             src={image.src}
@@ -102,7 +104,7 @@ function WorkSection({ featuredProjects }) {
                             decoding="async"
                             fetchPriority="low"
                           />
-                        </a>
+                        </button>
                       </div>
                     ))}
                   </div>
@@ -186,6 +188,11 @@ function WorkSection({ featuredProjects }) {
           )
         })}
       </div>
+      <ImageLightbox
+        image={lightbox?.image}
+        projectTitle={lightbox?.projectTitle}
+        onClose={() => setLightbox(null)}
+      />
     </section>
   )
 }
