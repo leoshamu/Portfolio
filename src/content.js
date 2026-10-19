@@ -125,6 +125,15 @@ export const featuredProjects = [
         src: withBase('images/exeter-bazaar-home.png'),
         alt: 'Exeter Bazaar homepage with product search, department navigation, store information, and grocery branding',
       },
+      {
+        src: withBase('images/exeter-bazaar-desktop.png'),
+        alt: 'Desktop view of the Exeter Bazaar homepage in a web browser',
+      },
+      {
+        src: withBase('images/exeter-bazaar-mobile.jpg'),
+        alt: 'Mobile view of the Exeter Bazaar homepage showing its responsive navigation, search, headline, and calls to action',
+        fit: 'contain',
+      },
     ],
     detail:
       'I designed and developed the public shopping experience and a custom administration portal. Customers can browse a department-based catalogue, search by keyword, filter products, and move through paginated results, while staff can create and edit products, manage prices and publication status, and upload product images without touching code.',

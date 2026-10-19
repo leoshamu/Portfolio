@@ -1135,6 +1135,12 @@ ul {
   object-fit: cover;
 }
 
+.project-gallery img.project-image-contain,
+.project-detail-image img.project-image-contain {
+  object-fit: contain;
+  background: #fff;
+}
+
 .project-detail-aside .project-stack-chip {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.14);

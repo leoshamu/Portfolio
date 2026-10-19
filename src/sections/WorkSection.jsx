@@ -78,6 +78,7 @@ function WorkSection({ featuredProjects }) {
                       <img
                         src={project.images[0].src}
                         alt={project.images[0].alt}
+                        className={project.images[0].fit === 'contain' ? 'project-image-contain' : undefined}
                         loading="lazy"
                         decoding="async"
                         fetchPriority="low"
@@ -96,6 +97,7 @@ function WorkSection({ featuredProjects }) {
                           <img
                             src={image.src}
                             alt={image.alt}
+                            className={image.fit === 'contain' ? 'project-image-contain' : undefined}
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"

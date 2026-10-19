@@ -23,7 +23,12 @@ function ProjectDetailSection({ project }) {
               target="_blank"
               rel="noreferrer"
             >
-              <img src={image.src} alt={image.alt} decoding="async" />
+              <img
+                src={image.src}
+                alt={image.alt}
+                className={image.fit === 'contain' ? 'project-image-contain' : undefined}
+                decoding="async"
+              />
             </a>
           ))}
         </div>
