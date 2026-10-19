@@ -625,6 +625,43 @@ ul {
   font-size: 0.92rem;
 }
 
+.home-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+  width: min(1200px, 100%);
+  margin: 0 auto 3rem;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.home-socials a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
+  border-radius: 10px;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.home-socials svg {
+  display: block;
+  width: 27px;
+  height: 27px;
+}
+
+.home-socials a:hover,
+.home-socials a:focus-visible {
+  color: var(--accent-deep);
+  background: rgba(23, 75, 70, 0.08);
+}
+
+.home-socials a:focus-visible {
+  outline: 2px solid var(--accent-deep);
+  outline-offset: 3px;
+}
+
 .project-stack-chip {
   display: inline-flex;
   align-items: center;

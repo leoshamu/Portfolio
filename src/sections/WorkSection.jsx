@@ -7,16 +7,16 @@ function ProjectActions({ project, compact = false }) {
   return (
     <div className={compact ? 'work-actions work-actions-compact' : 'work-actions'}>
       <a className="work-action work-action-primary" href={`/projects/${project.slug}/`}>
-        View case study <span aria-hidden="true">&rarr;</span>
+        View case study
       </a>
       {project.website ? (
         <a className="work-action" href={project.website} target="_blank" rel="noreferrer">
-          Visit website <span aria-hidden="true">↗</span>
+          Visit website
         </a>
       ) : null}
       {project.github ? (
         <a className="work-action" href={project.github} target="_blank" rel="noreferrer">
-          GitHub <span aria-hidden="true">↗</span>
+          GitHub
         </a>
       ) : null}
     </div>

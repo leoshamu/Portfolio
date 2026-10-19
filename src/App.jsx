@@ -9,6 +9,7 @@ import {
   statusItems,
 } from './content'
 import Header from './components/Header'
+import SocialLinks from './components/SocialLinks'
 import AboutSection from './sections/AboutSection'
 import ContactSection from './sections/ContactSection'
 import CvSection from './sections/CvSection'
@@ -59,6 +60,7 @@ function App() {
               profile={profile}
               statusItems={statusItems}
             />
+            <SocialLinks profile={profile} />
           </>
         ) : null}
 
